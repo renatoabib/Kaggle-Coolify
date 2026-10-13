@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN pip install --no-cache-dir kaggle pyyaml
 
 # 3. Clona o repositório da TPU especificando a URL CORRETA de forma definitiva
-RUN git clone https://github.com /tmp/tpu-lab \
+RUN git clone https://github.com/ARahim3/kaggle-tpu-lab /tmp/tpu-lab \
     && cp -r /tmp/tpu-lab/* /app/ \
     && rm -rf /tmp/tpu-lab
 
