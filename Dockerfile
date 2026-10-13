@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 RUN ln -s /usr/local/bin/kaggle /usr/local/bin/pip-kaggle || true
 
 # 4. Baixa o código fonte diretamente do pacote compactado na rota estável (sem falha de tar)
-RUN curl -L https://github.com | tar -xz --strip-components=1 -C /app
+RUN curl -L https://github.com/ARahim3/kaggle-tpu-lab | tar -xz --strip-components=1 -C /app
 
 # 5. Importa o script de entrada e aplica permissões de leitura e execução
 COPY entrypoint.sh /app/entrypoint.sh
