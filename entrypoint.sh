@@ -1,14 +1,14 @@
 #!/bin/bash
-# Cria o diretório de credenciais
-mkdir -p ~/.kaggle
+set -e
 
-# Injeta as chaves do Coolify no arquivo JSON
+# Estrutura o diretório padrão e gera o arquivo JSON de autenticação
+mkdir -p ~/.kaggle
 echo "{\"username\":\"${KAGGLE_USERNAME}\",\"key\":\"${KAGGLE_KEY}\"}" > ~/.kaggle/kaggle.json
 chmod 600 ~/.kaggle/kaggle.json
 
-# Adiciona o caminho dos binários do Python ao PATH do sistema
+# Exporta os caminhos de binários locais para o escopo global do contêiner
 export PATH="/usr/local/bin:$PATH"
 
 echo "Iniciando controle remoto da TPU no Kaggle..."
-# Executa o launch.py
+# Executa o script orquestrador da TPU v5e
 exec python launch.py serve
